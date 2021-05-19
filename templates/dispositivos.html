@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/dispositivos.css') }}">
+        <meta charset="UTF-8">
+        <title>
+            {% block title%} Pretecor |{% endblock %}
+        </title>      
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+       
+    </head>
+
+    <script>
+
+        function myClick( value ){
+            console.log("got here");
+            console.log(value)
+            // Do Whatever you want
+        }
+    </script>
+
+    <body>       
+
+        <div style = "position:static; left:0px; top:0px;margin-top:10%">
+            <a href="index">
+                <img src="{{url_for('static', filename='logo.png')}}" alt="Nature" class="responsive">    
+            </a>   
+            <h1>INFORMACIÓN DEL USUARIO</h1>
+             
+            <h1>usuario: {{nombre_cliente}}  </h1>
+        </div>  
+
+      
+        <div>    
+            {%for datos in dispositivos["respuesta"] %}         
+                <table style = "width: 100%" id="myTable">   
+                    <tr>
+                        <td class="modelo_poste">MODELO POSTE</td>
+                        <td class="modelo_poste">
+                            {{datos["modelo_poste"]}}
+                        </td>                     
+                    </tr>
+                    <tr>
+                        <td class="serial">SERIAL</td>
+                        <td  class="serial">
+                            {{datos["serial"]}}
+                        </td>    
+                    </tr>
+                    <tr>
+                        <td class="serial">UBICACIÓN</td>
+                        <td  class="serial">
+                            {{datos["ubicacion"]}}
+                        </td>    
+                    </tr>
+                    <tr>
+                        <td class="serial">CIUDAD</td>
+                        <td  class="serial">
+                            {{datos["ciudad"]}}
+                        </td>    
+                    </tr>
+                    <tr>
+                        <td class="fecha_compra">FECHA COMPRA</td>
+                        <td class="fecha_compra">
+                            {{datos["fecha_instalacion"]}}
+                        </td>    
+                    </tr>                    
+                    <tr>
+                        <form action="/dispositivos" method="post">
+                            <td>                                
+                                <button type="submit" name="estado_poste_id" value="{{datos['id']}}" id="button">Estado de Poste/Editar Ubicación</button>
+                            </td> 
+                            <td>
+                                <button type="submit" name="administrar_id" value="{{datos['id']}}">Administrar Mensajes</button>
+                            </td>    
+                        </form>
+                    </tr>        
+                </table>                 
+            {%endfor%}
+                 
+        </div> 
+        <button onclick="location.href = '/index'">Salir</button>
+    </body>
+</html>

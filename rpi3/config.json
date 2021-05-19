@@ -1,0 +1,15 @@
+{
+    "SERVER_IP":"http://34.95.135.112/",
+    "END_POINT_PASSWD":"pretec2020",
+    "GET_DATA_END_POINT": "/api/get_data",
+    "INSERT_DATA_END_POINT":"/api/insert_data",
+    "MODIFY_COLOR_END_POINT":"/api/modify_color",
+    "MODIFY_DATA_END_POINT":"/api/modify_data",
+    "INSERT_EVENT_END_POINT":"/api/insert_event"
+}
+
+
+
+
+
+

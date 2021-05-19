@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_mensajes.css') }}">
+        <meta charset="UTF-8">
+        <title>
+            {% block title%} Pretecor |{% endblock %}
+        </title>      
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+       
+    </head>
+ 
+
+    <body>       
+
+        <div style = "position:static; left:0px; top:0px;margin-top:10%">
+            <a href="index">
+                <img src="{{url_for('static', filename='logo.png')}}" alt="Nature" class="responsive">    
+            </a>   
+            <h1>ADMINISTRAR MENSAJES</h1>
+        </div>  
+        <div style = "position:static; left:0px; top:0px;margin-top:1%">
+            <h1>usuario: {{nombre_cliente}}</h1>
+            <h1>serial del dispositivo: {{serial}}</h1>
+            <h1>ubicacion: {{ubicacion}}</h1>
+          </div>
+      
+        <div>    
+            <table style = "width: 100%" id="myTable">   
+                <tr>
+                         
+                    <td class="modelo_poste">FECHA HORA MODIFICACIÓN</td>
+                    <td class="modelo_poste">TIPO DE MENSAJE</td>  
+                    <td class="modelo_poste">MENSAJE</td>  
+                    <td class="modelo_poste">DURACIÓN [S]</td>  
+                    <td class="modelo_poste">COLOR</td>   
+                    <td class="modelo_poste">OPERACIÓN</td> 
+                    <td class="modelo_poste"></td>  
+                </tr>
+                {%for datos in mensajes["respuesta"] %}         
+
+
+                    <tr>   
+                        {% if datos["activado"]==1 %}  
+                        <td  class="serial" style="color:green">                            
+                            {{datos["modificado"]}}
+                        </td>  
+                        {% else %}  
+                        <td  class="serial" style="color:red">                            
+                            {{datos["modificado"]}}
+                        </td>  
+                        {% endif %}       
+                        <td  class="serial">
+                            {{datos["tipo"]}}
+                        </td>
+                        <td  class="serial">
+                            {{datos["mensaje"]}}
+                        </td>
+                        <td  class="serial">
+                            {{datos["duracion"]}}
+                        </td>
+                        <td  class="serial">
+                            {{datos["color"]}}
+                        </td>
+                        <form action="/admin_mensajes" method="post">           
+                            <td  class="serial">                                              
+                                    {% if datos["activado"]==1 %}                                    
+                                            <button class="desactivar" type="submit" name="id_desactiva" value="{{datos['id']}}" id="button" ><u>Desactivar</u></button>
+                                        
+                                    {% else %}                                    
+                                            <button class="activar" type="submit" name="id_activa" value="{{datos['id']}}" id="button"><u>Activar</u></button>
+                                    
+                                    {% endif %}                                                    
+                            </td>
+                        </form>     
+                       <form action="/edit_mensaje" method="post">
+                            <td  class="serial">                                
+                                    <button class="serial" type="submit" name="mensaje_id" value="{{datos['id']}}" id="button"><u>Editar</u></button>
+                            </td> 
+                        </form>    
+                        
+                    </tr>                   
+                {%endfor%}      
+                </table>                 
+            
+                 
+        </div> 
+        <button onclick="location.href = '/nuevo_mensaje'">Nuevo Mensaje</button>
+
+        <button onclick="location.href = '/dispositivos'">Regresar</button>
+    
+        <button onclick="location.href = '/index'">Salir</button>
+    </body>
+</html>

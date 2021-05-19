@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_mensajes.css') }}">
+        <meta charset="UTF-8">
+        <title>
+            {% block title%} Pretecor |{% endblock %}
+        </title>      
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+       
+    </head>
+ 
+
+    <body>       
+      <script>
+        function get_select()
+        {
+          var e = document.getElementById("tipo_mensaje");
+          var tipo_mensaje = e.options[e.selectedIndex].value;
+          if(tipo_mensaje==="Texto"){
+            var texto = document.getElementById("texto");
+            texto.setAttribute('maxLength',14) 
+          }
+          if(tipo_mensaje==="Texto Especial"){
+            var texto = document.getElementById("texto");
+            texto.setAttribute('maxLength',100) 
+          }
+          if(tipo_mensaje==="Texto" ||tipo_mensaje==="Texto Especial"){
+            document.getElementById("texto").disabled = false;             
+          }else{
+            document.getElementById("texto").disabled = true;    
+          }          
+        }
+        window.onload = get_select;
+        
+      </script>
+
+        <div style = "position:static; left:0px; top:0px;margin-top:10%">
+            <a href="index">
+                <img src="{{url_for('static', filename='logo.png')}}" alt="Nature" class="responsive">    
+            </a>   
+            <h1>EDITAR MENSAJE</h1>
+        </div>  
+        <div style = "position:static; left:0px; top:0px;margin-top:1%">
+          <h1>usuario: {{nombre_cliente}}</h1>
+          <h1>serial del dispositivo: {{serial}}</h1>
+          <h1>ubicacion: {{ubicacion}}</h1>
+        </div>
+        <div class="container">
+          <form action="/check_edited" method="post">  
+                
+            <div class="row">
+              <div class="col-25">
+                <label for="tipo_mensaje">Tipo de Mensaje</label>
+              </div>
+              <div class="col-75">
+                <select id="tipo_mensaje" name="tipo_mensaje" onchange="get_select()">
+                  <option selected="selected">
+                    {{mensaje['tipo']}}
+                  </option>
+                  <option value="Fecha">Fecha</option>
+                  <option value="Hora">Hora</option>
+                  <option value="Texto">Texto</option>
+                  <option value="Texto Especial">Texto Especial</option>
+                  <option value="Bandera">Bandera</option>
+                  <option value="Temperatura">Temperatura</option>
+                  <option value="TRM">TRM</option>
+                </select>
+              </div>
+             
+            <div class="row">
+              <div class="col-25">
+                <label for="texto">Texto</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="texto" name="texto" placeholder="{{mensaje['mensaje']}}" disabled>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="lname">Duración (en segundos)</label>
+              </div>
+              <div class="col-75">
+                <input type="number"  min="0" id="duracion" name="duracion" placeholder="{{mensaje['duracion']}}">
+              </div>
+            </div>             
+            <div class="row">
+              <div class="col-25">
+                <label for="color">Color</label>
+              </div>
+             
+            <div class="col-75">
+              <select id="color" name="color">
+                <option selected="selected">
+                    {{mensaje['color']}}
+                </option>
+                <option value="Amarillo">Amarillo</option>
+                <option value="Rojo">Rojo</option>
+                <option value="Verde">Verde</option>
+                <option value="Blanco">Blanco</option>
+                <option value="Azul">Azul</option>
+                <option value="Morado">Morado</option>
+                <option value="Gris">Gris</option>
+                <option value="Violeta">Violeta</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="color">Estado</label>                
+              </div>
+            <div class="col-75">
+              <select id="Estado" name="estado">
+                <option selected="selected">
+                    {{mensaje['activado']}}
+                </option>
+                <option value="1">Activado</option>
+                <option value="0">Desactivado</option>
+              </select>
+            </div>
+            <div class="row">
+              <button class="input" type="submit" name="mensaje_id" value="{{mensaje['id']}}" id="button"><u>Guardar</u></button>
+            </div>            
+          </form>
+          <div class="row">
+            <form action="/admin_mensajes" method="post">
+              <button class="borrar" type="submit" name="id_borrar" value="{{mensaje['id']}}" id="button" onclick="return confirm('Estás seguro que deseas eliminar este mensaje?');"><u>Borrar Mensaje</u></button>
+            </form>             
+          </div>
+
+          <div class="row">
+            <form action="/admin_mensajes" method="get">
+              <button class="input" type="submit" name="mensaje_id" value="{{mensaje['id']}}" id="button"><u>Regresar</u></button>
+            </form>             
+          </div>
+          
+        </div>
+    
+
+
+    </body>
+</html>

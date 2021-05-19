@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <meta charset="UTF-8">
+        <title>
+            {% block title%} Pretecor |{% endblock %}
+        </title>      
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+    </head>
+    <body>       
+        <div style = "position:static; left:0px; top:0px;margin-top:10%">
+            <a href="index">
+                <img src="{{url_for('static', filename='logo.png')}}" alt="Nature" class="responsive">    
+            </a>   
+        </div>  
+        <div class="container">
+            <form action="" method="post">
+                <label for="username"><b>Nombre de Usuario</b></label>
+                <input type="text" placeholder="ingrese nombre de usuario" name="username" value="{{request.form.username }}">
+        
+                <label for="psw"><b>password</b></label>
+                <input type="password" placeholder="Ingrese Contraseña" name="password" value="{{request.form.password }}">
+        
+                <button type="submit">Controlar</button>
+            </form>
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{ error }}
+            {% endif %}
+        </div>
+    </body>
+</html>

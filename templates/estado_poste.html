@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/estado_poste.css') }}">
+        <meta charset="UTF-8">
+        <title>
+            {% block title%} Pretecor |{% endblock %}
+        </title>      
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+       
+    </head>
+
+    <body>       
+
+        <div style = "position:static; left:0px; top:0px;margin-top:10%">
+            <a href="index">
+                <img src="{{url_for('static', filename='logo.png')}}" alt="Nature" class="responsive">    
+            </a>   
+            <h1>ESTADO DEL DISPOSITIVO</h1>
+            
+        </div>  
+        <div style = "position:static; left:0px; top:0px;margin-top:1%">
+            <h1>usuario: {{nombre_cliente}}</h1>
+            <h1>serial del dispositivo: {{serial}}</h1>
+            <h1>ubicacion: {{ubicacion}}</h1>
+        </div>
+        <div>    
+           
+                <table style = "width: 100%" id="myTable">   
+                    <tr>
+                        <td class="modelo_poste">ULTIMA CONEXIÓN</td>
+                        <td class="modelo_poste">
+                            {{estado_poste["last_connection"]}}
+                        </td>                     
+                    </tr>
+                    <tr>
+                        <td class="modelo_poste">ESTADO</td>
+                        <td  class="modelo_poste">
+                            {{estado_poste["estado"]}}
+                        </td>    
+                    </tr>
+                    <form action="/dispositivos" method="post">
+                        <tr>
+                            <td class="serial">UBICACIÓN</td>
+                            <td  class="serial">
+                                <input class = "serial" type="text" id="texto" name="ubicacion" placeholder="{{ubicacion}}" enabled>
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td class="serial">CIUDAD</td>
+                            <td  class="serial">
+                                <select id="ciudad" name="ciudad">
+                                    <option selected="selected">
+                                        {{ciudad}}
+                                    </option>
+                                    <option value="Bucaramanga">Bucaramanga</option>
+                                    <option value="Floridablanca">Floridablanca</option>
+                                    <option value="Girón">Girón</option>
+                                    <option value="Piedecuesta">Piedecuesta</option>
+                                    <option value="Bogotá">Bogotá</option>
+                                    <option value="Barranquilla">Barranquilla</option>
+                                    <option value="Medellín">Medellín</option>
+                                    <option value="Cali">Cali</option>
+                                    <option value="Santa Marta">Santa Marta</option>
+                                </select>
+                            </td>    
+                        </tr>
+                        
+                </table>                                  
+        </div> 
+        <button class="input" type="submit" name="guardar_ubicacion" value="{{serial}}" id="button">Guardar</button>
+        </form>
+        <button onclick="location.href = '/dispositivos'">Regresar</button>
+    </body>
+</html>

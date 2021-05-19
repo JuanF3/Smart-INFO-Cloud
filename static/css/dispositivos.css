@@ -1,0 +1,54 @@
+h1 {text-align: center;
+    font-size:1.2em;
+    font-family:'Roboto',sans-serif;
+    color: #283970 }
+.responsive {
+    width: 30%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    top: 20%;
+    left: 50%;
+    margin-right: 20%;
+    transform: translate(-50%, -20%) 
+  }
+
+ .modelo_poste{
+    background-color: #4472c4;
+    color: white;
+    font-family:'Roboto',sans-serif;
+    padding: 2%;
+    width: 30%;
+    max-width: 50%;
+ }
+ .serial{
+    background-color: #cfd5ea;
+    color: black;
+    font-family:'Roboto',sans-serif;
+    padding: 2%;
+    width: 30%;
+    max-width: 50%;
+ }
+
+ .fecha_compra{
+    background-color: #e9ebf5;
+    color: black;
+    font-family:'Roboto',sans-serif;
+    padding: 2%;
+    width: 30%;
+    max-width: 50%;
+ }
+
+  /* Set a style for all buttons */
+  button {
+    background-color:#4095c6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family:'Roboto',sans-serif;
+    font-size: 100%;
+  }

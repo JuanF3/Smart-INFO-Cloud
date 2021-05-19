@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+        <meta charset="UTF-8">
+        <title>
+            {% block title%} Pretecor |{% endblock %}
+        </title>      
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+    </head>
+    <script> 
+        function sendTimeToServer(){
+            var clientTimezoneOffset = new Date().getTimezoneOffset()/60;//offset in hours
+            var login_button = document.getElementById("login_button");
+            login_button.value= clientTimezoneOffset;
+        }
+        window.onload = sendTimeToServer;
+    </script>
+    <body>       
+        <div style = "position:static; left:0px; top:0px;margin-top:10%">
+            <img href="index" src="{{url_for('static', filename='logo.png')}}" alt="Nature" class="responsive">    
+        </div>  
+        <div style = "position:static; left:0px; top:0px;margin-top:40%">
+            <form action="/login" method="get">
+                <button id="login_button" type="submit" class="indexButton" name="timeZone" >MI CUENTA SMART</button>    
+            </form>
+            <a href="http://pretecor.co/" class="indexButton">ACERCA DE PRETECOR</a>      
+        </div>  
+    </body>
+    <footer >
+        <br>
+        <br>
+        Pretecor © 2020 -  optimizado para Google Chrome
+    </footer>
+</html>

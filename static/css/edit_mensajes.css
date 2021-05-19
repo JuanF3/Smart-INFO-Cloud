@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid  #cfd5ea;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  input[type=number], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid  #cfd5ea;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  .input[type=submit] {
+    background-color:#4095c6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family:'Roboto',sans-serif;
+    font-size: 100%;
+  }
+  
+  .input[type=submit]:hover {
+    background-color:#4095c6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family:'Roboto',sans-serif;
+    font-size: 100%;
+  }
+  .borrar[type=submit] {
+    background-color:darkred;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family:'Roboto',sans-serif;
+    font-size: 100%;
+  }
+  .borrar[type=submit]:hover {
+    background-color:darkred;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family:'Roboto',sans-serif;
+    font-size: 100%;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color:  #cfd5ea;
+    padding: 20px;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  .responsive {
+    width: 30%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    top: 20%;
+    left: 50%;
+    margin-right: 20%;
+    transform: translate(-50%, -20%) 
+  }
+
+  h1 {text-align: center;
+    font-size:1.2em;
+    font-family:'Roboto',sans-serif;
+    color: #283970 }
+  /* Set a style for all buttons */
+ 
+  .serial{
+    background-color: #cfd5ea;
+    color: black;
+    font-family:'Roboto',sans-serif;
+    padding: 1%;
+    width: 5%;
+    max-width: 5%;
+ }
+ 

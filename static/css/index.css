@@ -1,0 +1,67 @@
+body {
+    background-color:white;
+  }
+  
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  table {
+    border-spacing: 5px;
+  }
+  th, td {
+    padding: 15px;
+  }
+  th {
+    text-align: left;
+  }
+  #myInput {
+    width: 20%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+
+  /* Set a style for all buttons */
+  .indexButton { 
+    background-color:#4095c6;
+    color: white; 
+    border-radius: 10px;
+    cursor: pointer;   
+    font-family:'Roboto',sans-serif;
+    font-size: 100%;
+    padding: 2%;  
+    display: block;
+    text-align: center;
+    margin-top: 2%;
+  }
+
+  .responsive {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    top:25%;
+    left: 50%;
+    margin-right: 20%;
+    transform: translate(-50%, -40%) 
+  }
+
+    /* Set a style for all buttons */
+    button {
+      background-color:#4095c6;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
