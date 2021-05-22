@@ -10,4 +10,3 @@
 print(' pretecor ')
 
 # Comentario con posible conflicto - Daniel
-
