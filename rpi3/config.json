@@ -1,5 +1,5 @@
 {
-    "SERVER_IP":"http://34.95.135.112/",
+    "SERVER_IP":"http://34.95.145.162/",
     "END_POINT_PASSWD":"pretec2020",
     "GET_DATA_END_POINT": "/api/get_data",
     "INSERT_DATA_END_POINT":"/api/insert_data",
